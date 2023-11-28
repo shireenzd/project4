@@ -9,3 +9,12 @@ button{
     background-color: whitesmoke;
     border-radius: 200px;
 }
+
+#icon {
+    color: #000;
+    cursor: pointer;
+}
+
+#icon.clicked {
+        color: #f00;
+      }
