@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Corner Store</title>
+    <style>
+      .border {
+        border: 1px solid red;
+      }
+      .border-1 {
+        border-width: 1px;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200">
+    <section id="store" class="bg-white p-6">
+      <div class="all-section">
+        <div class="store-section-header flex justify-between relative">
+          <h2>Store</h2>
+          <div class="flex gap-5 items-center">
+            <p>sort</p>
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <div id="store-search" class="hidden flex gap-2 right-10 top-10 justify-end">
+          <label for="price-limit">Price Limit:</label>
+          <input type="number" name="price-limit" id="price-limit" />
+          <label for="text-input">Text:</label>
+          <input class="border-black border-1" type="text" id="text-input" />
+          <p id="store-search-close">X</p>
+        </div>
+        <div class="cards-grid flex flex-wrap justify-center items-center gap-5 mt-5">
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Shirt</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$99.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">T-shirt</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$99.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Camera</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$19.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Pen</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$39.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Chair</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$49.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">coat</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$59.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Cup</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$69.99</div>
+            </div>
+          </div>
+          <div class="card w-52 shadow-md">
+            <div class="img-wrapper border h-52 w-52 overflow-hidden">
+              <img class="h-full max-w-none" src="products/1.webp" alt="" />
+            </div>
+            <div class="card-details p-2">
+              <div class="flex justify-between items-center">
+                <h3 class="product-name">Sanitizer</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="price">$79.99</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // managing likes
+      const hearts = document.querySelectorAll('.fa-heart');
+      function addEventHandler(htmlElement) {
+        htmlElement.addEventListener('click', function () {
+          htmlElement.classList.toggle('red');
+        });
+      }
+      hearts.forEach(addEventHandler);
+
+      // store search hide/show
+      // get search element
+      let storeSearch = document.querySelector('#store-search');
+      // get search icon
+      let searchIcon = document.querySelector('.fa-search');
+      function showSearch() {
+        storeSearch.classList.remove('hidden');
+      }
+      searchIcon.addEventListener('click', showSearch);
+
+      let closeSearchIcon = document.querySelector('#store-search-close');
+      function hideSearch() {
+        storeSearch.classList.add('hidden');
+      }
+      closeSearchIcon.addEventListener('click', hideSearch);
+      function filterStoreItems() {
+        let searchValue = searchInput.value;
+        let maxPrice = priceLimitElement.value;
+        if (isNaN(maxPrice)) {
+          maxPrice = 0;
+        }
+
+        // loop over all cards
+        cards.forEach(function (element) {
+          const cardInnerText = element.innerText;
+          const cardInnerTextParts = cardInnerText.split('$');
+          const cardPrice = cardInnerTextParts[1];
+          // above is equivalent to const cardPrice = element.innerText.split('$')[1]
+
+          // either add or remove class hidden
+          // if card text content matches search value, remove class hidden
+          // hide the ones that are not matching search
+          // & show the matching ones
+          if (element.innerText.toLowerCase().includes(searchValue.toLowerCase()) && (0 == maxPrice || cardPrice < maxPrice)) {
+            console.log('entered block to show card', cardPrice, maxPrice);
+            element.classList.remove('hidden');
+          } else {
+            element.classList.add('hidden');
+          }
+        });
+      }
+      const cards = document.querySelectorAll('.card');
+      // store search filtering
+      let searchInput = document.querySelector('#store-search input[type=text]');
+      searchInput.addEventListener('input', filterStoreItems);
+      // get reference of the price limit input
+      const priceLimitElement = document.querySelector('#price-limit');
+      priceLimitElement.addEventListener('change', filterStoreItems);
+
+
+    </script>
+  </body>
+</html>
