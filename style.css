@@ -4,10 +4,14 @@
     margin: 20px;
 }
 button{
-    margin: 10px;
+    margin: 5px 40px;
     padding: 20px;
     background-color: whitesmoke;
     border-radius: 200px;
+}
+
+.text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #icon {

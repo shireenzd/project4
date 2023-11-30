@@ -1,140 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Corner Store</title>
-  </head>
-  <body>
-    <header class="flex justify-around">
-      <div class="">
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-      </div>
-      <div class="">
-        <a href="#"><i class="fa-solid fa-lock"></i></a>
-      </div>
-      <div class="">
-        <a href="#"><i class="fa-regular fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-      </div>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <!-- Cart Icon -->
+    <div class="cart-icon fixed bottom-5 right-5 z-50 w-16 h-16 flex justify-center items-center bg-pink-300 rounded-full shadow-lg transition-transform transform hover:scale-110">
+        <a href="#" onclick="showCart()"><i class="fa-solid fa-cart-shopping text-white text-2xl"></i></a>
+    </div>
+
+    <!-- Header with Cover Image -->
+    <header class="relative flex justify-center items-center" id="cover-image">
+        <img src="images/cover.jpg" alt="Cover Image" class="w-full h-96 rounded-lg shadow-md object-cover">
+        <div class="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
+            <button id="button1" class="bg-white rounded-full p-2 shadow-md hover:bg-gray-200">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="button2" class="bg-white rounded-full p-2 shadow-md hover:bg-gray-200">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="text-wrapper absolute top-1/2 transform -translate-y-1/2 text-center w-5/6">
+            <h1 class="text text-white text-3xl font-bold">Classic Red Sofa</h1>
+        </div>
     </header>
-    <section class="relative" id="cover-image">
-      <img src="images\cover.jpg" alt="img " class="w-screen h-96 overflow-hidden " >
-      <div class=" top-2/4 flex justify-between absolute w-screen">
-        <button id="button1"> < </button>
-        <button id="button2"> > </button>
+
+  <section class="m-20">
+    <nav class="flex justify-between m-20 relative">
+      <div><a href="#">store</a></div>
+      <div class="hidden " id="store-search">
+        <label for="price-limit">price limit:</label>
+        <input type="number" class="border-2 border-black" id="price-limit">
+        <label for="text-input">text:</label>
+        <input type="text" class="border-black border-2" id="text-input">
+        <i class="fa-regular fa-circle-xmark"></i>
       </div>
-      <div class="flex ml-2/4 flex-col absolute align-center text-center top-2/4 w-screen">
-        <h1 class="text">Stipy Zig Zag Jigsaw Pillow and Duvet Set</h1>
-        <a href="#">view product</a>
-      </div>
+      <div>
+        <span class="p-2 bg-gray-200 sort-asc">asc &#x2191</span>
+        <span class="p-2 bg-gray-200 sort-desc">desc &#8595</span>
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </nav>
+    <div class="cards-grid flex flex-wrap"> </div>
+    <div class="m-20">
+      <h4 class="my-7 font-bold">About</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum,
+                magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi, animi hic.
+            </p>
+        </div>
     </section>
-    <section class="m-20">
-      <nav class="flex justify-between m-20 relative">
-        <div><a href="#">store</a></div>
-        <div class="hidden " id="store-search">
-          <label for="price-limit">price limit:</label>
-          <input type="number" class="border-2 border-black" id="price-limit">
-          <label for="text-input">text:</label>
-          <input type="text" class="border-black border-2" id="text-input" >
-          <i class="fa-regular fa-circle-xmark"></i>
+  <div class="cart absolute h-screen w-full hidden top-0 bg-white p-20 ">
+        <div class="flex justify-between px-20">
+      <h2>Cart</h2>
+      <p onclick="hideCart()">X</p>
         </div>
-        <div>
-          <a href="#"><i class="fa-solid fa-sort"></i></a>
-          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <div class="cart-contents flex">
         </div>
-      </nav>
-      <div class="flex flex-wrap justify-center cards ">
-        <div class="shadow-md card">
-          <img src="images\coffee.jpg" alt="coffee" class="images">
-          <div class="flex justify-between m-5">
-            <h6>shirt</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$9.99</b></p>
+    <div class="flex justify-end px-20">
+      <div class="cart-total">
+        $0
+            </div>
         </div>
-        <div class="shadow-md card">
-          <img src="images\lense.jpg" alt="lense" class="images" >
-          <div class="flex justify-between m-5">
-            <h6>t-Shirt</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$10.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\chair.jpg" alt="chair" class="images">
-          <div class="flex justify-between m-5">
-            <h6>chair</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$20.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\printer.jpg" alt="printer" class="images">
-          <div class="flex justify-between m-5">
-            <h6>printer</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$30.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\cup.jpg" alt="cup" class="images">
-          <div class="flex justify-between m-5">
-            <h6>cup</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$40.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\cookies.jpg" alt="cookies" class="images">
-          <div class="flex justify-between m-5">
-            <h6>Cookies</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$50.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\roll.jpg" alt="roll" class="images">
-          <div class="flex justify-between m-5">
-            <h6>roll</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$60.99</b></p>
-        </div>
-        <div class="shadow-md card">
-          <img src="images\dice.jpg" alt="dice" class="images">
-          <div class="flex justify-between m-5">
-            <h6>Dice</h6>
-            <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-          </div>
-          <p class="m-5"><b>$70.99</b></p>
-        </div>
-      </div>
-      <div class="m-20">
-        <h4 class="my-7 font-bold">About</h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum, magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi, animi hic.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum, magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi, animi hic.</p>
-      </div>
-    </section>
-    <hr>
+    </div>
+  <hr>
     <section class="mx-20">
-      <div class="flex justify-between my-5 font-bold">
-        <h6>About</h6>
-        <h6>Social</h6>
-      </div>
-      <div class="flex justify-between my-10">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Corrupti impedit esse tempora! <br> Fugiat eaque tempore, nisi repellendus necessitatibus quam repellat iusto deserunt libero quo <br>ipsa laborum magni vero vel!</p>
-        <p>add social links</p>
-      </div>
-      <script src="script.js"></script>
+        <div class="flex justify-between my-5 font-bold">
+            <h6>About</h6>
+            <h6>Social</h6>
+        </div>
+        <div class="flex justify-between my-10">
+            <p class="w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti impedit esse tempora! 
+                Fugiat eaque tempore, nisi repellendus necessitatibus quam repellat iusto deserunt libero quo 
+                ipsa laborum magni vero vel!
+            </p>
+            <div class="w-1/4">
+                <h6 class="font-semibold">Follow Us</h6>
+                <ul class="mt-2">
+                    <li><a href="#" class="text-blue-600 hover:underline">Facebook</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Twitter</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
     </section>
-  </body>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
