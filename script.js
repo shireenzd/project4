@@ -1,5 +1,5 @@
-let imageSources = ['images/cover.jpg', 'images/chair-header.jpg', 'images/living-room.jpg']
-let script = ['Classic Red Sofa', 'Bubble Egg Chair', 'Modern Office Furniture']
+let imageSources = [ 'images/living-room.jpg', 'images/cover.jpg', 'images/chair-header.jpg']
+let script = ['Modern Office Furniture', 'Classic Red Sofa', 'Bubble Egg Chair'] 
 
 let imgIndex = 0;
 let scriptIndex = 0;
@@ -134,7 +134,7 @@ function createHTMLProductCard(product) {
     </div>
     <div class="flex justify-between items-center p-4 border-t">
         <p class="text-xl font-bold text-gray-800">$${product.price}</p>
-        <button data-product-identifier="${product.id}" class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors" onclick="addItemToCart('${product.id}')">Add to Cart</button>
+        <button data-product-identifier="${product.id}" class="card-button text-white p-2 rounded-lg transition-colors" onclick="addItemToCart('${product.id}')">Add to Cart</button>
     </div>
   </div>  
      `;

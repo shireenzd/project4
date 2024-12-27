@@ -1,3 +1,13 @@
+body {
+    font-family: nunito;
+    background-color: #282828;
+    color: #ededed;
+}
+
+hr {
+    border: 1px solid #be9f5c;
+}
+
 .images {
     width: 250px;
     height: 250px;
@@ -9,6 +19,22 @@ input:focus-visible {
     border: 1px solid #c2b0a9;
 }
 
+.products-list {
+    box-shadow: 0px 4px 4px #c4a667; /* White shadow */
+}
+
+.card, nav{
+    background-color: #F8F5E6;
+    border-radius: 20px;
+}
+
+.card-button {
+    background-color: #c4a667;
+}
+
+.card-button:hover {
+    background-color: #c49b5a;
+}
 
 button {
     margin: 10px;
@@ -36,6 +62,11 @@ button {
     cursor: pointer;
 }
 
+#cover-image {
+    animation: fadeIn;
+    animation-duration: 5s;
+}
+
 #icon.clicked {
-    color: #f00;
+    color: #c4a667;
 }

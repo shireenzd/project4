@@ -5,30 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Corner Store</title>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body>
     <!-- Cart Icon -->
     <div class="cart-icon fixed bottom-5 right-5 z-50 w-16 h-16 flex justify-center items-center bg-pink-300 rounded-full shadow-lg transition-transform transform hover:scale-110">
         <a href="#" onclick="showCart()"><i class="fa-solid fa-cart-shopping text-white text-2xl"></i></a>
     </div>
 
     <!-- Header with Cover Image -->
-    <header class="relative flex justify-center items-center" id="cover-image">
+    <header class="relative animate__animated animate__fadeIn flex justify-center items-center" id="cover-image">
         <img src="images/cover.jpg" alt="Cover Image" class="w-full h-96 rounded-lg shadow-md object-cover">
         <div class="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
-            <button id="button1" class="bg-white rounded-full p-2 shadow-md hover:bg-gray-200">
-                <i class="fas fa-chevron-left"></i>
+            <button id="button1" class="bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-700">
+                <i class="fas fa-chevron-left text-white"></i>
             </button>
-            <button id="button2" class="bg-white rounded-full p-2 shadow-md hover:bg-gray-200">
-                <i class="fas fa-chevron-right"></i>
+            <button id="button2" class="bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-700">
+                <i class="fas fa-chevron-right text-white"></i>
             </button>
         </div>
         <div class="text-wrapper absolute top-1/2 transform -translate-y-1/2 text-center w-5/6">
@@ -36,62 +37,67 @@
         </div>
     </header>
 
-    <section class="m-10 bg-white rounded-lg shadow-lg p-6">
-        <nav class="flex  bg-gray-100 p-4 rounded-lg shadow-md">
+    <section class="products-list m-10 rounded-lg p-6">
+        <div class="flex justify-between px-10 pb-4">
+            <h1 class="text-white">Search</h1>
+            <h1 class="text-white pr-5">Sort Price</h1>
+        </div>
+        <nav class="flex mx-8 p-4 rounded-lg">
             <div class="w-full flex justify-between items-center">
-                <a href="#" class="text-gray-600 hover:text-blue-600">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="#" class="hover:text-blue-600">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
                 </a>
                 <div class="hidden" id="store-search">
-                    <label for="price-limit" class="text-sm">Price Limit:</label>
+                    <label for="price-limit" class="text-sm text-white">Price Limit:</label>
                     <input type="number" class="border-2 border-gray-300 rounded-lg p-1 mx-2 hover:border-gray-300" id="price-limit">
-                    <label for="text-input" class="text-sm">Text:</label>
-                    <input type="text" class="border-2 border-gray-300 rounded-lg p-1 mx-2" id="text-input">
-                    <i class="fa-regular fa-circle-xmark cursor-pointer hover:text-red-500"></i>
+                    <label for="text-input" class="text-sm text-white">Text:</label>
+                    <input type="text" class="border-2 rounded-lg p-1 mx-2" id="text-input">
+                    <i class="fa-regular fa-circle-xmark cursor-pointer hover:text-gray-500"></i>
                 </div>
                 <div>
-                    <span class="sort-asc p-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Asc &#x2191</span>
-                    <span class="sort-desc p-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Desc &#8595</span>
+                    <span class="sort-asc p-2 bg-gray-600 rounded-lg cursor-pointer hover:bg-gray-500 text-white">Asc &#x2191</span>
+                    <span class="sort-desc p-2 bg-gray-600 rounded-lg cursor-pointer hover:bg-gray-500 text-white">Desc &#8595</span>
                 </div>
             </div>
         </nav>
-        <div class="cards-grid flex flex-wrap justify-evenly mt-5"> 
+        <div class="cards-grid flex flex-wrap justify-evenly mt-5">
             <!-- Cards will be dynamically inserted here -->
         </div>
         <div class="m-10">
-            <h4 class="text-2xl font-bold text-gray-800 mb-4">About</h4>
-            <p class="text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum,
-                magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi, animi hic.
+            <h4 class="text-2xl font-bold text-gray-300 mb-4">About</h4>
+            <p class="text-gray-400 leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure
+                laborum,
+                magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi,
+                animi hic.
             </p>
         </div>
     </section>
-  <div class="cart absolute h-screen w-full hidden top-0 bg-white p-20 ">
+    <div class="cart absolute h-screen w-full hidden top-0 bg-gray-800 p-20 ">
         <div class="flex justify-between px-20">
-      <h2>Cart</h2>
-      <p onclick="hideCart()">X</p>
+            <h2 class="text-white">Cart</h2>
+            <p onclick="hideCart()" class="text-white">X</p>
         </div>
-    <div class="cart-contents flex">
+        <div class="cart-contents flex">
         </div>
-    <div class="flex justify-end px-20">
-      <div class="cart-total">
-        $0
+        <div class="flex justify-end px-20">
+            <div class="cart-total text-white">
+                $0
             </div>
         </div>
     </div>
-  <hr>
+    <hr>
     <section class="mx-20">
-        <div class="flex justify-between my-5 font-bold">
-            <h6>About</h6>
-            <h6>Social</h6>
-        </div>
         <div class="flex justify-between my-10">
-            <p class="w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti impedit esse tempora! 
-                Fugiat eaque tempore, nisi repellendus necessitatibus quam repellat iusto deserunt libero quo 
+            <div>
+                <img src="images/Logo.png" alt="logo" class="w-64">
+            </div>
+            <p class="w-3/4 text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti impedit esse tempora!
+                Fugiat eaque tempore, nisi repellendus necessitatibus quam repellat iusto deserunt libero quo
                 ipsa laborum magni vero vel!
             </p>
             <div class="w-1/4">
-                <h6 class="font-semibold">Follow Us</h6>
+                <h6 class="font-semibold text-white">Follow Us</h6>
                 <ul class="mt-2">
                     <li><a href="#" class="text-blue-600 hover:underline">Facebook</a></li>
                     <li><a href="#" class="text-blue-600 hover:underline">Twitter</a></li>
