@@ -45,14 +45,14 @@
         <nav class="flex mx-8 p-4 rounded-lg">
             <div class="w-full flex justify-between items-center">
                 <a href="#" class="hover:text-blue-600">
-                    <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
                 <div class="hidden" id="store-search">
                     <label for="price-limit" class="text-sm text-white">Price Limit:</label>
-                    <input type="number" class="border-2 border-gray-300 rounded-lg p-1 mx-2 hover:border-gray-300" id="price-limit">
+                    <input type="number" class="border-2 rounded-lg p-1 mx-2" id="price-limit">
                     <label for="text-input" class="text-sm text-white">Text:</label>
                     <input type="text" class="border-2 rounded-lg p-1 mx-2" id="text-input">
-                    <i class="fa-regular fa-circle-xmark cursor-pointer hover:text-gray-500"></i>
+                    <i class="fa-regular fa-circle-xmark cursor-pointer"></i>
                 </div>
                 <div>
                     <span class="sort-asc p-2 bg-gray-600 rounded-lg cursor-pointer hover:bg-gray-500 text-white">Asc &#x2191</span>
@@ -64,8 +64,8 @@
             <!-- Cards will be dynamically inserted here -->
         </div>
         <div class="m-10">
-            <h4 class="text-2xl font-bold text-gray-300 mb-4">About</h4>
-            <p class="text-gray-400 leading-relaxed">
+            <h4 class="text-2xl font-bold mb-4">About</h4>
+            <p class="leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure
                 laborum,
                 magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi,
@@ -78,7 +78,7 @@
             <h2 class="text-white">Cart</h2>
             <p onclick="hideCart()" class="text-white">X</p>
         </div>
-        <div class="cart-contents flex">
+        <div class="cart-contents flex flex-wrap">
         </div>
         <div class="flex justify-end px-20">
             <div class="cart-total text-white">
@@ -99,9 +99,9 @@
             <div class="w-1/4">
                 <h6 class="font-semibold text-white">Follow Us</h6>
                 <ul class="mt-2">
-                    <li><a href="#" class="text-blue-600 hover:underline">Facebook</a></li>
-                    <li><a href="#" class="text-blue-600 hover:underline">Twitter</a></li>
-                    <li><a href="#" class="text-blue-600 hover:underline">Instagram</a></li>
+                    <li><a href="#" class="hover:underline">Facebook</a></li>
+                    <li><a href="#" class="hover:underline">Twitter</a></li>
+                    <li><a href="#" class="hover:underline">Instagram</a></li>
                 </ul>
             </div>
         </div>

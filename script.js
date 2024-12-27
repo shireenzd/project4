@@ -129,11 +129,11 @@ function createHTMLProductCard(product) {
       <img src="${product.image}" alt="product" class="images">
     </div>
     <div class="flex justify-between items-center p-4">
-        <h6 class="text-lg font-semibold text-gray-800">${product.name}</h6>
-        <i class="fa-regular fa-heart text-gray-600 hover:text-red-500 cursor-pointer" id="icon" onclick="toggleColor(this)"></i>
+        <h6 class="text-lg font-semibold">${product.name}</h6>
+        <i class="fa-regular fa-heart cursor-pointer" id="icon" onclick="toggleColor(this)"></i>
     </div>
     <div class="flex justify-between items-center p-4 border-t">
-        <p class="text-xl font-bold text-gray-800">$${product.price}</p>
+        <p class="text-xl font-bold">$${product.price}</p>
         <button data-product-identifier="${product.id}" class="card-button text-white p-2 rounded-lg transition-colors" onclick="addItemToCart('${product.id}')">Add to Cart</button>
     </div>
   </div>  
@@ -233,7 +233,7 @@ function generateCartItemHTML(itemID) {
 
   let cartItemHTML = `
 
-        <div class="shadow-md card ">
+        <div class="shadow-md card m-5">
         <div class= "overflow-hidden">
       <img src="${product.image}" alt="product" class="images">
       </div>
@@ -252,8 +252,10 @@ let cartElement = document.querySelector('.cart')
 function showCart() {
   // select cart element
   cartElement.classList.remove('hidden')
+  document.body.classList.add('body-no-scroll');
 }
 
 function hideCart() {
   cartElement.classList.add('hidden')
+  document.body.classList.remove('body-no-scroll');
 }
