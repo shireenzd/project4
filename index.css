@@ -11,10 +11,17 @@ hr {
 }
 
 .body-no-scroll {
-    overflow: hidden; /* Disables scrolling */
-    height: 100vh;    /* Ensures no scrollable height */
+    overflow: hidden;
+    height: 100vh;
 }
 
+header nav {
+    background-color: #1e1e1e;
+}
+
+.header-text {
+    width: 40%;
+}
 
 .images {
     width: 250px;
@@ -44,12 +51,24 @@ input:focus-visible {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     overflow: hidden;
+
+    .card, nav {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
 }
 
-.card, nav {
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+.card {
+    cursor: pointer;
+}
+
+.product-price {
+    color: #be9f5c;
+}
+
+.product-features li::marker {
+    color: #be9f5c;
 }
 
 button {
@@ -75,13 +94,15 @@ button:hover {
 }
 
 #price-limit {
-    -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield;
+    /* Firefox */
 }
 
 /* Hide the arrows in Chrome, Safari, and Edge */
 #price-limit::-webkit-inner-spin-button,
 #price-limit::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    -webkit-appearance: none;
+    /* Chrome, Safari, Edge */
 }
 
 #icon {
@@ -90,16 +111,17 @@ button:hover {
     transition: color 0.2s ease-in-out;
 }
 
-#icon:hover, #icon.clicked {
+#icon:hover,
+#icon.clicked {
     color: #be9f5c;
 }
 
 #cover-image {
     animation: fadeIn 1.5s ease-in-out;
-    margin: 5px;
-    border-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     overflow: hidden;
-}
+}  
 
 .cart-icon {
     background-color: #be9f5c;
@@ -113,7 +135,8 @@ button:hover {
     transform: scale(1.1);
 }
 
-.sort-asc, .sort-desc {
+.sort-asc,
+.sort-desc {
     padding: 8px 12px;
     border-radius: 6px;
     background-color: #1e1e1e;
@@ -123,7 +146,8 @@ button:hover {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.sort-asc:hover, .sort-desc:hover {
+.sort-asc:hover,
+.sort-desc:hover {
     background-color: #be9f5c;
     color: #121212;
 }

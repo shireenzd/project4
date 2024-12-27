@@ -11,19 +11,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <title>Corner Store</title>
 </head>
 
 <body>
-    <!-- Cart Icon -->
+    <!--Absolute Cart Icon -->
     <div class="cart-icon fixed bottom-5 right-5 z-50 w-16 h-16 flex justify-center items-center bg-pink-300 rounded-full shadow-lg transition-transform transform hover:scale-110">
         <a href="#" onclick="showCart()"><i class="fa-solid fa-cart-shopping text-white text-2xl"></i></a>
     </div>
 
-    <!-- Header with Cover Image -->
-    <header class="relative animate__animated animate__fadeIn flex justify-center items-center" id="cover-image">
-        <img src="images/cover.jpg" alt="Cover Image" class="w-full h-96 rounded-lg shadow-md object-cover">
+    <header>
+        <nav class="flex justify-between items-center pr-8">
+             <img src="images/Logo.png" alt="Logo" class="w-60">
+             <h1 class="header-text text-3xl">Where Comfort Meets Style.</h1>
+             <i class="fa-regular fa-circle-user fa-2xl" style="color: #be9f5c;"></i>
+        </nav>
+    </header>
+
+    <section class="relative animate__animated animate__fadeIn flex justify-center items-center" id="cover-image">
+        <img src="images/cover.jpg" alt="Cover Image" class="w-full h-96 shadow-md object-cover">
         <div class="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
             <button id="button1" class="bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-700">
                 <i class="fas fa-chevron-left text-white"></i>
@@ -35,7 +42,7 @@
         <div class="text-wrapper absolute top-1/2 transform -translate-y-1/2 text-center w-5/6">
             <h1 class="text text-white text-3xl font-bold">Classic Red Sofa</h1>
         </div>
-    </header>
+    </section>
 
     <section class="products-list m-10 rounded-lg p-6">
         <div class="flex justify-between px-10 pb-4">
@@ -63,15 +70,6 @@
         <div class="cards-grid flex flex-wrap justify-evenly mt-5">
             <!-- Cards will be dynamically inserted here -->
         </div>
-        <div class="m-10">
-            <h4 class="text-2xl font-bold mb-4">About</h4>
-            <p class="leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure
-                laborum,
-                magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi,
-                animi hic.
-            </p>
-        </div>
     </section>
     <div class="cart absolute h-screen w-full hidden top-0 bg-gray-800 p-20 ">
         <div class="flex justify-between px-20">
@@ -88,15 +86,16 @@
     </div>
     <hr>
     <section class="mx-20">
-        <div class="flex justify-between my-10">
+        <div class="flex justify-between items-center my-10">
             <div>
                 <img src="images/Logo.png" alt="logo" class="w-64">
             </div>
-            <p class="w-3/4 text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti impedit esse tempora!
-                Fugiat eaque tempore, nisi repellendus necessitatibus quam repellat iusto deserunt libero quo
-                ipsa laborum magni vero vel!
+            <div class="w-2/4 text-gray-400 text-center">
+                <i class="fa-solid fa-location-dot fa-2xl p-8 animate__animated animate__wobble animate__slower animate__infinite" style="color: #be9f5c;"></i> 
+                <p class="">Corner Store, Main Street, Downtown Beirut, Lebanon. PO Box 12345
+            </div>
             </p>
-            <div class="w-1/4">
+            <div class="w-1/4 text-right">
                 <h6 class="font-semibold text-white">Follow Us</h6>
                 <ul class="mt-2">
                     <li><a href="#" class="hover:underline">Facebook</a></li>

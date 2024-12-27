@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="index.css">
+    <title>Corner Store</title>
+</head>
+
+<body>
+
+    <!-- Absolute Cart Icon -->
+    <div class="cart-icon fixed bottom-5 right-5 z-50 w-16 h-16 flex justify-center items-center bg-pink-300 rounded-full shadow-lg transition-transform transform hover:scale-110">
+        <a href="#" onclick="showCart()"><i class="fa-solid fa-cart-shopping text-white text-2xl"></i></a>
+    </div>
+
+    <div class="cart absolute h-screen w-full hidden top-0 bg-gray-800 p-20 ">
+        <div class="flex justify-between px-20">
+            <h2 class="text-white">Cart</h2>
+            <p onclick="hideCart()" class="text-white">X</p>
+        </div>
+        <div class="cart-contents flex flex-wrap"></div>
+        <div class="flex justify-end px-20">
+            <div class="cart-total text-white">$0</div>
+        </div>
+    </div>
+
+    <div class="flex justify-center p-12 items-center w-full">
+        <div class="product-container flex flex-wrap justify-evenly mt-5">
+            <!-- Product cards will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
