@@ -1,7 +1,6 @@
 let imageSources = ['images/cover.jpg', 'images/chair-header.jpg', 'images/living-room.jpg']
 let script = ['Classic Red Sofa', 'Bubble Egg Chair', 'Modern Office Furniture']
 
-
 let imgIndex = 0;
 let scriptIndex = 0;
 updateUI();
@@ -18,7 +17,6 @@ function moveRight() {
   }
   updateUI();
 }
-
 
 function moveLeft() {
   imgIndex = imgIndex - 1;
@@ -72,14 +70,14 @@ function hideSearch() {
 closeSearchIcon.addEventListener('click', hideSearch);
 
 let products = [
-  { name: "coffee", image: "images/coffee.jpg", price: "10.99", id: "product1" },
-  { name: "lense", image: "images/lense.jpg", price: "20.99", id: "product2" },
-  { name: "chair", image: "images/chair.jpg", price: "30.99", id: "product3" },
-  { name: "printer", image: "images/printer.jpg", price: "40.99", id: "product4" },
-  { name: "cup", image: "images/cup.jpg", price: "50.99", id: "product5" },
-  { name: "cookies", image: "images/cookies.jpg", price: "60.99", id: "product6" },
-  { name: "roll", image: "images/roll.jpg", price: "70.99", id: "product7" },
-  { name: "dice", image: "images/dice.jpg", price: "80.99", id: "product8" }
+  { name: "Swing", image: "images/swing.jpg", price: "10.99", id: "product1" },
+  { name: "Storage Bench", image: "images/storage-bench.jpg", price: "20.99", id: "product2" },
+  { name: "Chair", image: "images/chair.jpg", price: "30.99", id: "product3" },
+  { name: "Organizer", image: "images/storage-box.jpg", price: "40.99", id: "product4" },
+  { name: "Bloom Diffuser", image: "images/bloom-diffuser.jpg", price: "50.99", id: "product5" },
+  { name: "Kids Chair", image: "images/kids-chair.jpg", price: "60.99", id: "product6" },
+  { name: "Desk decor", image: "images/desk-decor.jpg", price: "70.99", id: "product7" },
+  { name: "Wall Clock", image: "images/wall-clock.jpg", price: "80.99", id: "product8" }
 ]
 
 let cardsGrid = document.querySelector('.cards-grid');
@@ -95,25 +93,17 @@ populateProductsGrid(products);
 function filterProducts(products, maxPrice, searchTerm) {
   // filter by price
   let filteredProducts = products.filter(function (product) {
+    const productPrice = parseFloat(product.price); // Parse price as float
     if (maxPrice <= 0 || isNaN(maxPrice)) {
       return true;
     }
-
-    // product.price
-    if (product.price < maxPrice) {
-      return true;
-    } else {
-      return false;
-    }
+    // Check if product price is less than maxPrice
+    return productPrice < maxPrice;
   });
 
   // filter by search
   filteredProducts = filteredProducts.filter(function (product) {
-    if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return true;
-    } else {
-      return false;
-    }
+    return product.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   return filteredProducts;
@@ -136,7 +126,7 @@ function createHTMLProductCard(product) {
   let cardHTML = ` 
     <div class="shadow-md card m-5">
         <div class= "overflow-hidden">
-      <img src="${product.image}" alt="coffee" class="images">
+      <img src="${product.image}" alt="product" class="images">
     </div>
     <div class="flex justify-between items-center p-4">
         <h6 class="text-lg font-semibold text-gray-800">${product.name}</h6>
@@ -146,9 +136,7 @@ function createHTMLProductCard(product) {
         <p class="text-xl font-bold text-gray-800">$${product.price}</p>
         <button data-product-identifier="${product.id}" class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors" onclick="addItemToCart('${product.id}')">Add to Cart</button>
     </div>
-  </div>
-    
-    
+  </div>  
      `;
   return cardHTML;
 }
@@ -176,13 +164,6 @@ document.querySelector('.sort-desc').addEventListener('click', function () {
   let sortedArr = sortPriceDesc(products)
   populateProductsGrid(sortedArr)
 })
-
-
-
-// add to cart functionality
-// document.querySelectorAll('.card button').forEach(function(addToCartBtn){
-//   addToCartBtn.addEventListener('click', function(){addItemToCart(addToCartBtn.dataset.productIdentifier)})
-// })
 
 let cart = [];
 
@@ -254,7 +235,7 @@ function generateCartItemHTML(itemID) {
 
         <div class="shadow-md card ">
         <div class= "overflow-hidden">
-      <img src="${product.image}" alt="coffee" class="images">
+      <img src="${product.image}" alt="product" class="images">
       </div>
       <div class="cart-item-details p-2">
             <h3 class="product-name">${product.name}</h3>

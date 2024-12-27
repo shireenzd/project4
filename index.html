@@ -36,26 +36,32 @@
         </div>
     </header>
 
-  <section class="m-20">
-    <nav class="flex justify-between m-20 relative">
-      <div><a href="#">store</a></div>
-      <div class="hidden " id="store-search">
-        <label for="price-limit">price limit:</label>
-        <input type="number" class="border-2 border-black" id="price-limit">
-        <label for="text-input">text:</label>
-        <input type="text" class="border-black border-2" id="text-input">
-        <i class="fa-regular fa-circle-xmark"></i>
-      </div>
-      <div>
-        <span class="p-2 bg-gray-200 sort-asc">asc &#x2191</span>
-        <span class="p-2 bg-gray-200 sort-desc">desc &#8595</span>
-        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <section class="m-10 bg-white rounded-lg shadow-lg p-6">
+        <nav class="flex  bg-gray-100 p-4 rounded-lg shadow-md">
+            <div class="w-full flex justify-between items-center">
+                <a href="#" class="text-gray-600 hover:text-blue-600">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <div class="hidden" id="store-search">
+                    <label for="price-limit" class="text-sm">Price Limit:</label>
+                    <input type="number" class="border-2 border-gray-300 rounded-lg p-1 mx-2 hover:border-gray-300" id="price-limit">
+                    <label for="text-input" class="text-sm">Text:</label>
+                    <input type="text" class="border-2 border-gray-300 rounded-lg p-1 mx-2" id="text-input">
+                    <i class="fa-regular fa-circle-xmark cursor-pointer hover:text-red-500"></i>
+                </div>
+                <div>
+                    <span class="sort-asc p-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Asc &#x2191</span>
+                    <span class="sort-desc p-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Desc &#8595</span>
+                </div>
             </div>
         </nav>
-    <div class="cards-grid flex flex-wrap justify-evenly"> </div>
-    <div class="m-20">
-      <h4 class="my-7 font-bold">About</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum,
+        <div class="cards-grid flex flex-wrap justify-evenly mt-5"> 
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+        <div class="m-10">
+            <h4 class="text-2xl font-bold text-gray-800 mb-4">About</h4>
+            <p class="text-gray-600 leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores corporis suscipit velit est iure laborum,
                 magni, odio consequatur amet, cumque molestiae vero debitis obcaecati recusandae nam nesciunt. Sequi, animi hic.
             </p>
         </div>
