@@ -48,16 +48,6 @@ function toggleColor(element) {
   element.classList.toggle('clicked');
 }
 
-
-//or..
-// const hearts = document.querySelectorAll('.fa-heart')
-// function addEventHandler (HTMLElement){
-//     HTMLElement.addEventListener('click', function(){
-//         HTMLElement.classList.toggle('clicked')
-//     })
-// }
-// hearts.forEach(addEventHandler)
-
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.fa-magnifying-glass').addEventListener('click', function (event) {
     event.preventDefault();
@@ -144,19 +134,19 @@ searchTermElement.addEventListener('input', function () {
 function createHTMLProductCard(product) {
 
   let cardHTML = ` 
-    <div class="shadow-md card ">
+    <div class="shadow-md card m-5">
         <div class= "overflow-hidden">
       <img src="${product.image}" alt="coffee" class="images">
-      </div>
-      <div class="flex justify-between m-5">
-        <h6>${product.name}</h6>
-        <i class="fa-regular fa-heart" id="icon" onclick="toggleColor(this)"></i>
-      </div>
-      <div class="flex justify-between">
-      <p class="m-5"><b>$${product.price}</b></p>
-      <button data-product-identifier = "${product.id}" class="bg-blue-200 p-1" onclick="addItemToCart('${product.id}')">add to cart</button>
-      </div>
     </div>
+    <div class="flex justify-between items-center p-4">
+        <h6 class="text-lg font-semibold text-gray-800">${product.name}</h6>
+        <i class="fa-regular fa-heart text-gray-600 hover:text-red-500 cursor-pointer" id="icon" onclick="toggleColor(this)"></i>
+    </div>
+    <div class="flex justify-between items-center p-4 border-t">
+        <p class="text-xl font-bold text-gray-800">$${product.price}</p>
+        <button data-product-identifier="${product.id}" class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors" onclick="addItemToCart('${product.id}')">Add to Cart</button>
+    </div>
+  </div>
     
     
      `;
